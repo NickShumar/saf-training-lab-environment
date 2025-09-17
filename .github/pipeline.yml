@@ -1,0 +1,7 @@
+name: Demo Security Validation Gold Image Pipeline
+
+# define the triggers for this action
+on:                                             
+  push:
+    # trigger this action on any push to main branch
+    branches: [ main, pipeline ]

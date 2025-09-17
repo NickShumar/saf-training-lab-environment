@@ -2,9 +2,9 @@ name: Demo Security Validation Gold Image Pipeline
 
 # define the triggers for this action
 on:                                             
-  push:
+  #push:
     # trigger this action on any push to main branch
-    branches: [ main, pipeline, answer_key ]                
+  #  branches: [ main, pipeline, answer_key ]                
   pull_request:
     branches: [ main ]
 
