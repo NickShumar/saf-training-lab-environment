@@ -1,0 +1,4 @@
+# my_nginx/inputs.yml
+admin_users:
+  - admin
+  - root
