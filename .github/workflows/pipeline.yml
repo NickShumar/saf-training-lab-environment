@@ -14,7 +14,7 @@ jobs:
        # so that we can use InSpec without manually accepting the license
       CHEF_LICENSE: accept  
        # path to our profile                   
-      PROFILE: my_nginx                        
+      PROFILE: my-nginx                        
     steps:
       # updating all dependencies is always a good start
       - name: PREP - Update runner              
@@ -29,3 +29,17 @@ jobs:
       # checkout the profile, because that's where our profile is!
       - name: PREP - Check out this repository  
         uses: actions/checkout@v3
+
+      # double-check that we don't have any serious issues in our profile code
+      - name: LINT - Run InSpec Check           
+        run: inspec check $PROFILE
+
+      # launch a container as the test target
+      - name: DEPLOY - Run a Docker container from nginx
+        run: docker run -dit --name nginx nginx:latest
+
+      # install dependencies on the container so that hardening will work
+      - name: DEPLOY - Install Python for our nginx container
+        run: |
+          docker exec nginx apt-get update -y
+          docker exec nginx apt-get install -y python3
