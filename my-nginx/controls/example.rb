@@ -48,7 +48,7 @@ control 'nginx-shell-access' do
   end
 end
 control 'nginx-interview' do
-  impact 0.0
+  impact 1.0
   title 'NGINX interview'
   desc 'NGINX admins should have documentation on security procedures.'
 
@@ -57,7 +57,7 @@ control 'nginx-interview' do
   end
 end
 control 'nginx-interview-2' do
-  impact 1.0
+  impact 0.0
   title 'NGINX interview'
   desc 'NGINX admins should have documentation on security procedures.'
 
